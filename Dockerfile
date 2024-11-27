@@ -5,7 +5,7 @@ FROM nginx:alpine
 COPY . /usr/share/nginx/html
 
 # Copy a custom Nginx configuration file to override the default configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 5000 to access the application in the browser
-EXPOSE 5000
+EXPOSE 80
