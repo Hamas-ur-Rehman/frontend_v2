@@ -41,7 +41,7 @@ class AudioHandler {
 
         const connectWebSocket = () => {
             // const wsUrl = `ws://localhost:8001/audio_stream`;
-            const wsUrl = `ws://206.81.19.236:8002/audio_stream`;
+            const wsUrl = `wss://backend-823410206404.us-central1.run.app/audio_stream`;
             this.websocket = new WebSocket(wsUrl);
 
             this.websocket.onopen = () => {

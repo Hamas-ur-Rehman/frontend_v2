@@ -108,7 +108,7 @@ async function sendMessage(message) {
   if (userInput) userInput.value = '';
 
   try {
-    const response = await fetch('http://206.81.19.236:8002/stream/text', {
+    const response = await fetch('https://backend-823410206404.us-central1.run.app/stream/text', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
