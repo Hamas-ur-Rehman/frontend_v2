@@ -40,7 +40,7 @@ class AudioHandler {
         if (!this.audioContext || !this.mediaStream || this.isRecording) return;
 
         const connectWebSocket = () => {
-            const wsUrl =`wss://backend-823410206404.us-central1.run.app/audio_stream`;
+            const wsUrl = `wss://backend-823410206404.us-central1.run.app/audio_stream`;
             // const wsUrl = `ws://206.81.19.236:8002/audio_stream`;
             this.websocket = new WebSocket(wsUrl);
 
@@ -216,8 +216,8 @@ class AudioHandler {
                 this.playAudio(audioArray);
             }
 
-            if (message.transcript) {
-                this.onTranscriptReceived(message.transcript, message.new);
+            if (message.transcript || message.new) {
+                this.onTranscriptReceived(message.transcript || "", message.new);
             }
 
             if (message.function_name && message.inputs) {
