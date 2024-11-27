@@ -14,7 +14,7 @@ class AudioHandler {
         this.isPlaying = false;
         this.recordedAudioChunks = [];
         this.speakingStartTime = null;
-        this.speakingThreshold = 900;
+        this.speakingThreshold = 300;
     }
 
     async initialize() {
