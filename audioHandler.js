@@ -14,7 +14,7 @@ class AudioHandler {
         this.isPlaying = false;
         this.recordedAudioChunks = [];
         this.speakingStartTime = null;
-        this.speakingThreshold = 300;
+        this.speakingThreshold = 500;
     }
 
     async initialize() {
@@ -40,8 +40,8 @@ class AudioHandler {
         if (!this.audioContext || !this.mediaStream || this.isRecording) return;
 
         const connectWebSocket = () => {
-            // const wsUrl = `ws://localhost:8001/audio_stream`;
-            const wsUrl = `wss://backend-823410206404.us-central1.run.app/audio_stream`;
+            const wsUrl =`wss://backend-823410206404.us-central1.run.app/audio_stream`;
+            // const wsUrl = `ws://206.81.19.236:8002/audio_stream`;
             this.websocket = new WebSocket(wsUrl);
 
             this.websocket.onopen = () => {
@@ -325,11 +325,11 @@ class AudioHandler {
         const speakingDuration = Date.now() - this.speakingStartTime;
 
         console.log("Thrsold: ", speakingDuration);
-        if (speakingDuration > this.speakingThreshold) {
-            console.log("User interrupted while AI audio is playing. Stopping playback...");
-            this.audioBufferQueue = []; // Clear any queued audio chunks.
-            this.isPlaying = false; // Stop current playback.
-            this.speakingStartTime = null;
-        }
+        // if (speakingDuration > this.speakingThreshold) {
+        //     console.log("User interrupted while AI audio is playing. Stopping playback...");
+        //     this.audioBufferQueue = []; // Clear any queued audio chunks.
+        //     this.isPlaying = false; // Stop current playback.
+        //     this.speakingStartTime = null;
+        // }
     }
 }
